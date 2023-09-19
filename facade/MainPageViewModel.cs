@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -23,7 +24,6 @@ namespace facade
 			currentGuess = "";
 		}
 
-
 		[RelayCommand]
 		void AddLetter(string letter)
 		{
@@ -33,15 +33,21 @@ namespace facade
 			}
 		}
 
-		void Guess()
-		{
-			// if correct, then go to game over (DidWin=true)
+		[RelayCommand]
+		void DeleteLetter() {
+            if (CurrentGuess.Length > 0) {
+                CurrentGuess = CurrentGuess.Remove(CurrentGuess.Length - 1, 1);
+            }
+        }
+        void Guess()
+        {
+            // if correct, then go to game over (DidWin=true)
 
-			// else if this is the 6th guess (and it's wrong)
-			// then go to game over (DidWin=false)
+            // else if this is the 6th guess (and it's wrong)
+            // then go to game over (DidWin=false)
 
 
-			// Add this guess to the Guesses
+            // Add this guess to the Guesses
 			Guesses.Add(CurrentGuess);
 
 		}

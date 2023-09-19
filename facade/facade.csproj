@@ -56,4 +56,10 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\MarvelRegular-Dj83.ttf" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Fonts\Marvel-Regular.ttf" />
+	</ItemGroup>
 </Project>

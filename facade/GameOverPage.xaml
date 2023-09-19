@@ -3,12 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="facade.GameOverPage"
              Title="GameOverPage">
+
     <VerticalStackLayout>
         <Label
+            Text="You Won!"
+            FontSize="42"
+            HorizontalOptions="Center"/>
+        <Label
+            Text="The word was:"
+            FontSize="42"
+            HorizontalOptions="Center"/>
+        <Label
             x:Name="ResultLabel"
-            Text="{Binding Result}"
-            FontSize="Title"
+            Text="#beefed"
+            FontSize="60"
+            BackgroundColor="#beefed"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button
+            Text="New Game?"
+            FontSize="60"
+            BackgroundColor="black"/>
     </VerticalStackLayout>
+
 </ContentPage>

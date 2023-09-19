@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="facade.MainPage"
              Title="#facade"
+             
              xmlns:local="clr-namespace:facade"
              x:DataType="local:MainPageViewModel"
              >
 
-    <ScrollView>
+    <ScrollView BackgroundColor="#383D4E">
         <Grid Padding="0" RowSpacing="16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -16,34 +17,38 @@
 
             </Grid.RowDefinitions>
 
+            <Label Text="GUESS THE HEX CODE!" FontFamily="Marvel" FontSize="40" TextColor="#D9D9D9" Padding="18" HorizontalOptions="Center"/>
 
             <!--<RoundRectangle Grid.Row="0" Fill="#facade" CornerRadius="48" MaximumHeightRequest="150"/>-->
-            <StackLayout HorizontalOptions="Fill" BackgroundColor="#facade" Padding="8" Grid.Row="0" Orientation="Horizontal"  >
+            <StackLayout HorizontalOptions="Fill" BackgroundColor="#BEEFED" Padding="32" Margin="40,70" Grid.Row="0" Orientation="Horizontal"  >
 
-                <Label Text="#" FontSize="60" VerticalOptions="Center" />
+                <Label Text="#" TextColor="#383D4E" FontFamily="Marvel" FontSize="64" VerticalOptions="Center"/>
                 <Label Text="{Binding CurrentGuess}"
-                       FontSize="60"
+                       TextColor="#383D4E"
+                       FontFamily="Marvel"
+                       FontSize="90"
+                       Margin="0,0,0,0"
                        VerticalOptions="Center"
                        />
 
             </StackLayout>
 
-            <CollectionView
+            <!--<CollectionView
                 ItemsSource="{Binding Guesses}">
                 <CollectionView.ItemTemplate>
 
-                    <!--<Button Grid.Row="0"
+                    <Button Grid.Row="0"
                     Grid.Column="1"
                     Text="#fadedd"
                     BackgroundColor="#fadedd"
                     FontSize="16"
-                    IsEnabled="false "/>-->
+                    IsEnabled="false "/>
 
                 </CollectionView.ItemTemplate>
 
-            </CollectionView>
+            </CollectionView>-->
 
-            <!--<Grid Padding="12" Grid.Row="1" RowSpacing="12" ColumnSpacing="12">
+            <Grid Padding="16" Grid.Row="1" RowSpacing="12" ColumnSpacing="12">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -59,25 +64,26 @@
                     Grid.Column="0"
                     Text="#beaded"
                     BackgroundColor="#beaded"
-                    FontSize="16"
+                    FontSize="20"
+                    FontAutoScalingEnabled="True"
                     IsEnabled="false "/>
                 <Button Grid.Row="0"
                     Grid.Column="1"
                     Text="#fadedd"
                     BackgroundColor="#fadedd"
-                    FontSize="16"
+                    FontSize="20"
                     IsEnabled="false "/>
                 <Button Grid.Row="0"
                     Grid.Column="2"
                     Text="#beefed"
                     BackgroundColor="#beefed"
-                    FontSize="16"
+                    FontSize="20"
                     IsEnabled="false "/>
 
                 <Button Grid.Row="1"
                     Grid.Column="0"
                     Text=""
-                    BackgroundColor="Transparent"
+                    BackgroundColor="#5B5F6E"
                     BorderColor="#111"
                     BorderWidth="1"
                     FontSize="16"
@@ -85,7 +91,7 @@
                 <Button Grid.Row="1"
                     Grid.Column="1"
                     Text=""
-                    BackgroundColor="Transparent"
+                    BackgroundColor="#5B5F6E"
                     BorderColor="#111"
                     BorderWidth="1"
                     FontSize="16"
@@ -93,15 +99,16 @@
                 <Button Grid.Row="1"
                     Grid.Column="2"
                     Text=""
-                    BackgroundColor="Transparent"
+                    BackgroundColor="#5B5F6E"
                     BorderColor="#111"
                     BorderWidth="1"
                     FontSize="16"
                     IsEnabled="false "/>
 
-            </Grid>-->
+            </Grid>
 
-            <Grid Padding="12" Grid.Row="2" RowSpacing="12" ColumnSpacing="12">
+            <Grid Padding="16" Grid.Row="2" RowSpacing="12" ColumnSpacing="-6">
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -111,95 +118,90 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
 
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Row="0"
                     Grid.Column="0"
                     Text="A"
-                    WidthRequest="80"
+                    WidthRequest="75"
                     HeightRequest="80"
-                    BackgroundColor="#666"
-                    TextColor="White"
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     FontSize="48"
-
                     Command="{Binding AddLetterCommand}"
                     CommandParameter="A"
                 />
                 <Button Grid.Row="0"
                     Grid.Column="1"
                     Text="B"
-                    WidthRequest="80"
+                    WidthRequest="75"
                     HeightRequest="80"
-                    BackgroundColor="#666"
-                    TextColor="White"
-
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     FontSize="48"
-
                     Command="{Binding AddLetterCommand}"
                     CommandParameter="B"
                 />
                 <Button Grid.Row="0"
                     Grid.Column="2"
                     Text="C"
-                   WidthRequest="80"
+                    WidthRequest="75"
                     HeightRequest="80"
-                    BackgroundColor="#666"
-                    TextColor="White"
-
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     FontSize="48"
-
                     Command="{Binding AddLetterCommand}"
                     CommandParameter="C"
                 />
                 <Button Grid.Row="1"
                     Grid.Column="0"
                     Text="D"
-                    WidthRequest="80"
+                    WidthRequest="75"
                     HeightRequest="80"
-                    BackgroundColor="#666"
-                    TextColor="White"
-
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     FontSize="48"
-
                     Command="{Binding AddLetterCommand}"
                     CommandParameter="D"
                 />
                 <Button Grid.Row="1"
                     Grid.Column="1"
                     Text="E"
-                    WidthRequest="80"
+                    WidthRequest="75"
                     HeightRequest="80"
-                    BackgroundColor="#666"
-                    TextColor="White"
-
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     FontSize="48"
-
                     Command="{Binding AddLetterCommand}"
                     CommandParameter="E"
                 />
                 <Button Grid.Row="1"
                     Grid.Column="2"
                     Text="F"
-                    WidthRequest="80"
+                    WidthRequest="75"
                     HeightRequest="80"
-                    BackgroundColor="#666"
-                    TextColor="White"
-
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     FontSize="48"
-
                     Command="{Binding AddLetterCommand}"
                     CommandParameter="F"
                 />
                 <Button Grid.Row="0"
                     Grid.Column="3"
-                    Text="↑"
+                    Text="▲"
                     WidthRequest="60"
-                    HeightRequest="60"
-                        CornerRadius="30"
-                    BackgroundColor="#666"
-                    TextColor="White"
+                    HeightRequest="70"
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
+                    TextColor="#3E4350"
                     Clicked="Button_Clicked"
                     FontSize="32"
                 >
@@ -214,11 +216,13 @@
                     Grid.Column="3"
                     Text="⌫"
                     WidthRequest="60"
-                    HeightRequest="60"
-                    BackgroundColor="Transparent"
+                    HeightRequest="70"
+                    CornerRadius="15"
+                    BackgroundColor="#C7E0EA"
                     TextColor="#333"
-                    BorderWidth="0"
                     FontSize="36"
+                    Command="{Binding DeleteLetterCommand}"
+
                 />
 
 
