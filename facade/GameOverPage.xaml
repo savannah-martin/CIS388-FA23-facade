@@ -2,17 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="facade.GameOverPage"
-             Title="GameOverPage">
+             Title="GameOverPage"
+             BackgroundColor="#383D4E">
 
     <VerticalStackLayout>
         <Label
-            Text="You Won!"
-            FontSize="42"
-            HorizontalOptions="Center"/>
-        <Label
-            Text="The word was:"
-            FontSize="42"
-            HorizontalOptions="Center"/>
+            Text="YOU WON!"
+            FontSize="60"
+            HorizontalOptions="Center"
+            FontFamily="Marvel"
+            TextColor="#D9D9D9"
+            Padding="30"
+            />
         <Label
             x:Name="ResultLabel"
             Text="#beefed"
@@ -20,6 +21,18 @@
             BackgroundColor="#beefed"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label
+            Text="#beefed"
+            FontSize="60"
+            BackgroundColor="#beefed"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontFamily="Marvel"
+            TextColor="#383D4E"
+            Padding="45, 60, 50, 60"
+            Margin="36"
+
+            />
         <Button
             Text="New Game?"
             FontSize="60"
