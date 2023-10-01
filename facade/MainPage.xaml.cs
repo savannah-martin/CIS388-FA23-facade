@@ -15,10 +15,10 @@ public partial class MainPage : ContentPage
 		BindingContext = new MainPageViewModel();
 	}
 
-    async void Button_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
-    }
+    //async void Button_Clicked(object sender, EventArgs e)
+    //{
+    //    await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
+    //}
 }
 
 

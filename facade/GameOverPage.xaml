@@ -3,24 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="facade.GameOverPage"
              Title="GameOverPage"
-             BackgroundColor="#383D4E">
+             BackgroundColor="#383D4E"
+             xmlns:local="clr-namespace:facade"
+             x:DataType="local:GameOverPageViewModel"
+             >
 
     <VerticalStackLayout>
+
         <Label
-            Text="YOU WON!"
+            x:Name="ResultLabel"
+            Text="YOU LOST!"
             FontSize="60"
+            FontFamily="Marvel"
+            TextColor="#D9D9D9"
+            HorizontalOptions="Center"
+            Padding="36"
+            />
+        <Label
+            Text="THE HEX CODE WAS:"
+            FontSize="55"
             HorizontalOptions="Center"
             FontFamily="Marvel"
             TextColor="#D9D9D9"
             Padding="30"
             />
-        <Label
-            x:Name="ResultLabel"
-            Text="#beefed"
-            FontSize="60"
-            BackgroundColor="#beefed"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
         <Label
             Text="#beefed"
             FontSize="60"
@@ -31,12 +37,17 @@
             TextColor="#383D4E"
             Padding="45, 60, 50, 60"
             Margin="36"
-
             />
         <Button
-            Text="New Game?"
+            Text="NEW GAME?"
             FontSize="60"
-            BackgroundColor="black"/>
+            HorizontalOptions="Center"
+            FontFamily="Marvel"
+            TextColor="#383D4E"
+            BackgroundColor="#D9D9D9"
+            Clicked="New_Game"
+            Padding="36"
+            />
     </VerticalStackLayout>
 
 </ContentPage>

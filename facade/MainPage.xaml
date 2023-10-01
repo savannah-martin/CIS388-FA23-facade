@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="facade.MainPage"
              Title="#facade"
-             
              xmlns:local="clr-namespace:facade"
              x:DataType="local:MainPageViewModel"
              >
@@ -33,22 +32,33 @@
 
             </StackLayout>
 
-            <!--<CollectionView
-                ItemsSource="{Binding Guesses}">
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Guesses}"
+                >
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                        Orientation="Vertical"
+                        Span="3"
+                        />
+                    </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
-
-                    <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Text="#fadedd"
-                    BackgroundColor="#fadedd"
-                    FontSize="16"
-                    IsEnabled="false "/>
-
+                    <DataTemplate x:DataType="local:ColorGuess">
+                        <Button 
+                            Text="{Binding Guess}"
+                            BackgroundColor="{Binding Color}"
+                            FontSize="20"
+                            IsEnabled="false"
+                            Padding="10"
+                            Margin="10"/>
+                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 
-            </CollectionView>-->
+            </CollectionView>
 
-            <Grid Padding="16" Grid.Row="1" RowSpacing="12" ColumnSpacing="12">
+            <!--<Grid Padding="16" Grid.Row="1" RowSpacing="12" ColumnSpacing="12">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -105,7 +115,7 @@
                     FontSize="16"
                     IsEnabled="false "/>
 
-            </Grid>
+            </Grid>-->
 
             <Grid Padding="16" Grid.Row="2" RowSpacing="12" ColumnSpacing="-6">
 
@@ -202,7 +212,7 @@
                     CornerRadius="15"
                     BackgroundColor="#C7E0EA"
                     TextColor="#3E4350"
-                    Clicked="Button_Clicked"
+                    Command= "{Binding GuessCommand}"
                     FontSize="32"
                 >
                     <Button.Shadow>
