@@ -23,12 +23,12 @@ namespace facade
 
 		public MainPageViewModel()
 		{
-			secretColor = "FACADE";
+			secretColor = "BEEFED";
 			currentGuess = "";
 			Guesses = new ObservableCollection<ColorGuess>();
 
-			Guesses.Add( new ColorGuess("#beaded") );
-            Guesses.Add( new ColorGuess("#efaced") );
+			//Guesses.Add( new ColorGuess("#beaded") );
+            //Guesses.Add( new ColorGuess("#efaced") );
         }
 
 		[RelayCommand]
@@ -49,24 +49,42 @@ namespace facade
 		[RelayCommand]
         async void Guess()
         {
-			// if correct, then go to game over (DidWin=true)
+			// if not long enough, alert
 			if (CurrentGuess.Length != 6) {
                 await App.Current.MainPage.DisplayAlert("Alert", "Please enter 6 letters!", "OK");
                 return;
 			}
-
-			if (CurrentGuess == SecretColor)
+            // if correct, then go to game over (DidWin=true)
+            if (CurrentGuess == SecretColor)
 			{
 				DidWin = true;
-                Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
-            }
+				Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
+				Guesses.Clear();
+			}
 
-            // else if this is the 6th guess (and it's wrong)
-            // then go to game over (DidWin=false)
+			else
+			{
+				// if already guessed, alert
+                if (Guesses.Contains(new ColorGuess($"#{CurrentGuess}"))) {
+                    await App.Current.MainPage.DisplayAlert("Alert", "You already guessed that silly goose.", "OK");
+                    return;
+				}
 
-            // Add this guess to the Guesses
-            Guesses.Add( new ColorGuess(CurrentGuess));
-
+				// else, add
+				else {
+					Guesses.Add(new ColorGuess($"#{CurrentGuess}"));
+				}
+				// else if this is the 6th guess (and it's wrong)
+				// then go to game over (DidWin=false)
+				if (Guesses.Count == 6)
+				{
+                    Guesses.Clear();
+                    DidWin = false;
+					Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
+				}
+			}
+			// reset guess string
+			CurrentGuess = "";
 		}
 
 
