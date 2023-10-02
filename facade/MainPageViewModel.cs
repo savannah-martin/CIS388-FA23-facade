@@ -15,6 +15,9 @@ namespace facade
 		private string currentGuess;
 
 		[ObservableProperty]
+        private int attempts;
+
+		[ObservableProperty]
         private bool didWin;
 
         public ObservableCollection<ColorGuess> Guesses { get; set; }
@@ -25,6 +28,7 @@ namespace facade
 		{
 			secretColor = "BEEFED";
 			currentGuess = "";
+			attempts = 0;
 			Guesses = new ObservableCollection<ColorGuess>();
 
 			//Guesses.Add( new ColorGuess("#beaded") );
@@ -54,33 +58,38 @@ namespace facade
                 await App.Current.MainPage.DisplayAlert("Alert", "Please enter 6 letters!", "OK");
                 return;
 			}
+
+			// increment guess number
+			Attempts += 1;
+
             // if correct, then go to game over (DidWin=true)
             if (CurrentGuess == SecretColor)
 			{
-				DidWin = true;
-				Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
-				Guesses.Clear();
-			}
+                DidWin = true;
+                await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}");
+                Guesses.Clear();
+				Attempts = 0;
+            }
 
-			else
+            else
 			{
 				// if already guessed, alert
-                if (Guesses.Contains(new ColorGuess($"#{CurrentGuess}"))) {
-                    await App.Current.MainPage.DisplayAlert("Alert", "You already guessed that silly goose.", "OK");
-                    return;
-				}
+				//if (Guesses.Contains(new ColorGuess($"#{CurrentGuess}")))
+				//{
+					//await App.Current.MainPage.DisplayAlert("Alert", "You already guessed that silly goose.", "OK");
+					//return;
+				//}
 
 				// else, add
-				else {
-					Guesses.Add(new ColorGuess($"#{CurrentGuess}"));
-				}
+				Guesses.Add(new ColorGuess($"#{CurrentGuess}"));
 				// else if this is the 6th guess (and it's wrong)
 				// then go to game over (DidWin=false)
 				if (Guesses.Count == 6)
 				{
                     Guesses.Clear();
+					Attempts = 0;
                     DidWin = false;
-					Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}");
+					await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}");
 				}
 			}
 			// reset guess string

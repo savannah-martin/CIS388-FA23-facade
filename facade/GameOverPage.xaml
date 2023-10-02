@@ -13,7 +13,7 @@
         <Label
             x:Name="ResultLabel"
             Text="YOU LOST!"
-            FontSize="60"
+            FontSize="70"
             FontFamily="Marvel"
             TextColor="#D9D9D9"
             HorizontalOptions="Center"
@@ -21,11 +21,11 @@
             />
         <Label
             Text="THE HEX CODE WAS:"
-            FontSize="55"
+            FontSize="40"
             HorizontalOptions="Center"
             FontFamily="Marvel"
             TextColor="#D9D9D9"
-            Padding="30"
+            Padding="15"
             />
         <Label
             Text="#beefed"
@@ -37,6 +37,23 @@
             TextColor="#383D4E"
             Padding="45, 60, 50, 60"
             Margin="36"
+            />
+        <Label
+            Text="ATTEMPTS:"
+            FontSize="40"
+            HorizontalOptions="Center"
+            FontFamily="Marvel"
+            TextColor="#D9D9D9"
+            Padding="15"
+            />
+        <Label
+            x:Name="AttemptsLabel"
+            Text=""
+            FontSize="50"
+            HorizontalOptions="Center"
+            FontFamily="Marvel"
+            TextColor="#D9D9D9"
+            Padding="30"
             />
         <Button
             Text="NEW GAME?"

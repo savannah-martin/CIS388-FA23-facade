@@ -1,6 +1,7 @@
 ﻿namespace facade;
 
 [QueryProperty("DidWin", "DidWin")]
+[QueryProperty("Attempts", "Attempts")]
 public partial class GameOverPage : ContentPage
 {
 	private bool didWin;
@@ -20,6 +21,18 @@ public partial class GameOverPage : ContentPage
 			}
 		}
 	}
+    private string attempts;
+    public string Attempts
+    {
+        get => attempts;
+        set
+        {
+            attempts = value;
+            AttemptsLabel.Text = attempts;
+            Console.WriteLine(attempts);
+            Console.WriteLine(AttemptsLabel);
+        }
+    }
 
     //private string result;
     //public string Result {
