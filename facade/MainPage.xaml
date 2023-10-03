@@ -48,6 +48,7 @@
                     <DataTemplate x:DataType="local:ColorGuess">
                         <Button 
                             Text="{Binding Guess}"
+                            TextColor="#383D4E"
                             BackgroundColor="{Binding Color}"
                             FontSize="20"
                             IsEnabled="false"

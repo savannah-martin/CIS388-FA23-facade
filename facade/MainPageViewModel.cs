@@ -87,10 +87,10 @@ namespace facade
 				if (Guesses.Count == 6)
 				{
                     Guesses.Clear();
-					Attempts = 0;
                     DidWin = false;
 					await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}");
-				}
+                    Attempts = 0;
+                }
 			}
 			// reset guess string
 			CurrentGuess = "";
