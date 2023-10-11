@@ -28,7 +28,7 @@
             Padding="15"
             />
         <Label
-            Text="#beefed"
+            x:Name="AnswerLabel"
             FontSize="60"
             BackgroundColor="#beefed"
             VerticalOptions="Center" 

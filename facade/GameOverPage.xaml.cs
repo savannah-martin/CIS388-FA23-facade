@@ -2,6 +2,7 @@
 
 [QueryProperty("DidWin", "DidWin")]
 [QueryProperty("Attempts", "Attempts")]
+[QueryProperty("Answer", "Answer")]
 public partial class GameOverPage : ContentPage
 {
 	private bool didWin;
@@ -31,6 +32,17 @@ public partial class GameOverPage : ContentPage
             AttemptsLabel.Text = attempts;
             Console.WriteLine(attempts);
             Console.WriteLine(AttemptsLabel);
+        }
+    }
+
+    private string answer;
+    public string Answer
+    {
+        get => answer;
+        set
+        {
+            answer = value;
+            AnswerLabel.Text = answer;
         }
     }
 

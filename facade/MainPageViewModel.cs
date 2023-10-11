@@ -20,13 +20,31 @@ namespace facade
 		[ObservableProperty]
         private bool didWin;
 
+		[ObservableProperty]
+		public Color secretColorBkgd;
+
         public ObservableCollection<ColorGuess> Guesses { get; set; }
 
 		//public string SecretColor { get; set; }
 
+		private string randomColor()
+		{
+
+			string letters = "ABCDEF";
+
+			string color = "";
+			Random rand = new Random();
+			for ( int i =0; i<6; i++) {
+				color += letters[rand.Next(0, 6)];
+			}
+
+			return color;
+		}
+
 		public MainPageViewModel()
 		{
-			secretColor = "BEEFED";
+			secretColor = randomColor();
+            SecretColorBkgd = Color.FromArgb('#' + secretColor);
 			currentGuess = "";
 			attempts = 0;
 			Guesses = new ObservableCollection<ColorGuess>();
@@ -66,7 +84,7 @@ namespace facade
             if (CurrentGuess == SecretColor)
 			{
                 DidWin = true;
-                await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}");
+                await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}&Answer={SecretColor}");
                 Guesses.Clear();
 				Attempts = 0;
             }
@@ -88,7 +106,7 @@ namespace facade
 				{
                     Guesses.Clear();
                     DidWin = false;
-					await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}");
+					await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}&Answer={SecretColor}");
                     Attempts = 0;
                 }
 			}

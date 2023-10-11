@@ -19,7 +19,7 @@
             <Label Text="GUESS THE HEX CODE!" FontFamily="Marvel" FontSize="40" TextColor="#D9D9D9" Padding="18" HorizontalOptions="Center"/>
 
             <!--<RoundRectangle Grid.Row="0" Fill="#facade" CornerRadius="48" MaximumHeightRequest="150"/>-->
-            <StackLayout HorizontalOptions="Fill" BackgroundColor="#BEEFED" Padding="32" Margin="40,70" Grid.Row="0" Orientation="Horizontal"  >
+            <StackLayout HorizontalOptions="Fill" BackgroundColor="{Binding SecretColorBkgd}" Padding="32" Margin="40,70" Grid.Row="0" Orientation="Horizontal"  >
 
                 <Label Text="#" TextColor="#383D4E" FontFamily="Marvel" FontSize="64" VerticalOptions="Center"/>
                 <Label Text="{Binding CurrentGuess}"
