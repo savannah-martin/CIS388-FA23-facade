@@ -84,7 +84,10 @@ namespace facade
             if (CurrentGuess == SecretColor)
 			{
                 DidWin = true;
-                await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}&Answer={SecretColor}");
+                string currentAnswer = SecretColor;
+                SecretColor = randomColor();
+				SecretColorBkgd = Color.FromArgb('#' + SecretColor);
+                await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}&Answer={currentAnswer}");
                 Guesses.Clear();
 				Attempts = 0;
             }
@@ -106,7 +109,10 @@ namespace facade
 				{
                     Guesses.Clear();
                     DidWin = false;
-					await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}&Answer={SecretColor}");
+					string currentAnswer = SecretColor;
+                    SecretColor = randomColor();
+                    await Shell.Current.GoToAsync($"{nameof(GameOverPage)}?DidWin={DidWin}&Attempts={Attempts}&Answer={currentAnswer}");
+                    SecretColorBkgd = Color.FromArgb('#' + SecretColor);
                     Attempts = 0;
                 }
 			}

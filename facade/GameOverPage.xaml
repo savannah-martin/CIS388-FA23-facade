@@ -30,7 +30,7 @@
         <Label
             x:Name="AnswerLabel"
             FontSize="60"
-            BackgroundColor="#beefed"
+            BackgroundColor="AliceBlue"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             FontFamily="Marvel"
